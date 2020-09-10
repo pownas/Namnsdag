@@ -72,10 +72,6 @@ img{
     height: 100%;
 }
 
-.center{
-    text-align: center;
-}
-
 /* Dator-versioner nedan för olika stora skärmar */
 @media screen and (min-width: 768px) 
 {
