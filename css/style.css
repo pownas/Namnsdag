@@ -1,12 +1,27 @@
 html, body {
     font-family: Arial,Helvetica,sans-serif;
-    background: #ddd;
-    height: auto;
+    text-align: center;
     margin: 0;
     padding: 0;
-    display: flexbox;
-    flex-direction: column;
-    flex-wrap: wrap;
+
+    background: #ddd;
+    height: 60vh;
+    display: grid;
+
+    grid-template: 
+        "header" 3.5em
+        "main" 1fr
+        "section" 4em
+        "footer" 4em
+        / 1fr;
+
+    /* grid-template-areas: 
+        "header"
+        "main"
+        "section"
+        "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 3.5em 1fr 4em 4em; */
 }
 
 .wrapper {
@@ -34,20 +49,58 @@ a{
     word-wrap: break-word;
 }
 
-/* header {
-    background: #aaa;
-} */
-
 main {
-    height: 35vh;
     padding-top: 1em;
-    /* background: #ddd; */
 }
 
-/* section {
-    background: #aaa;
-} */
+/* Styles till ./docs/ */
+img{
+    width: 100%;
+}
 
-/* footer {
-    background: #ddd;
-} */
+.image-grid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 1fr;
+    grid-gap: 1em;
+    text-align: center;
+    align-items: flex-start;
+}
+
+.image-figure{
+    border:1px solid black;
+    height: 100%;
+}
+
+.center{
+    text-align: center;
+}
+
+/* Dator-versioner nedan för olika stora skärmar */
+@media screen and (min-width: 768px) 
+{
+    .image-grid{
+    grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1280px) 
+{
+    .image-grid{
+    grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1600px) 
+{
+    .image-grid{
+    grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 1900px) 
+{
+    .image-grid{
+    grid-template-columns: repeat(5, 1fr);
+    }
+}
