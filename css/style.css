@@ -25,7 +25,7 @@ html, body {
 }
 
 .wrapper {
-    padding: 1em;
+    padding: 1em; /* Dator-version, mobil har annan media-query nedan. */
 }
 
 h1{
@@ -79,6 +79,14 @@ img{
         grid-auto-rows: auto;
         grid-gap: 0;
         grid-row-gap: 1em;
+    }
+    .wrapper{
+        margin 0 auto;
+        padding: 0;
+    }
+    header, main, section, footer{
+        width: 97%;
+        margin: 0 auto;
     }
 }
 
