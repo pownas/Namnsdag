@@ -61,8 +61,8 @@ img{
 .image-grid{
     display: grid;
     grid-template-columns: 100%; /* mobil , dator har media-query */ 
-    grid-auto-rows: 1fr; /* detta är dator version, mobil har annan nedan */
-    grid-gap: 1em;
+    grid-auto-rows: 1fr; /* dator version, mobil har annan nedan i media */
+    grid-gap: 1em; /* dator, mobil har annat värde nedan */
     text-align: center;
     align-items: flex-start;
 }
@@ -77,6 +77,8 @@ img{
 {
     .image-grid{
         grid-auto-rows: auto;
+        grid-gap: 0;
+        grid-row-gap: 1em;
     }
 }
 
