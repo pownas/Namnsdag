@@ -5,14 +5,14 @@ html, body {
     padding: 0;
 
     background: #ddd;
-    height: 60vh;
+    height: 80vh;
     display: grid;
 
     grid-template: 
-        "header" 3.5em
-        "main" 1fr
-        "section" 4em
-        "footer" 4em
+        "header" auto
+        "main" 3fr
+        "section" auto
+        "footer" auto
         / 1fr;
 
     /* grid-template-areas: 
