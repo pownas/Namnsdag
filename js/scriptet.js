@@ -7,6 +7,12 @@ var oneDay = 1000 * 60 * 60 * 24;
 var dayOfYear = Math.floor(diff / oneDay);
 if (dayOfYear >= 60)
 {
+    //Kod för att visa skottår: https://stackoverflow.com/a/16353241
+    function leapYear(year)
+    {
+        return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+    }
+
     dayOfYear += 1; // löser alla år utom skottår
 }
 console.log('Day of year: ' + dayOfYear);
