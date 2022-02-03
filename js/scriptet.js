@@ -5,7 +5,10 @@ var start = new Date(now.getFullYear(), 0, 0);
 var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
 var oneDay = 1000 * 60 * 60 * 24;
 var dayOfYear = Math.floor(diff / oneDay);
-dayOfYear += 1; // löser alla år utom skottår
+if (dayOfYear >= 60)
+{
+    dayOfYear += 1; // löser alla år utom skottår
+}
 console.log('Day of year: ' + dayOfYear);
 //Koden för att ta fram dagen slutar här. 
 
