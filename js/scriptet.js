@@ -8,16 +8,14 @@ var year = now.getFullYear();
 var dayOfYear = Math.floor(diff / oneDay);
 
 //Kod för att visa skottår: https://stackoverflow.com/a/16353241
-//om det är == 0, borde det bli false, är det > 0, så blir det true. 
-var leapYear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
-var notLeapYear = Boolean(leapYear);
+var leapYear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0); //returnerar true/false
 
-if (dayOfYear >= 60)
+if (dayOfYear >= 60) //60 = 29e februari
 {
-    if (notLeapYear) //om leapYear == 0, så är det skottår. 
-        dayOfYear += 1; // löser alla år utom skottår
+    if (!leapYear) //om inte leapYear (skottår). 
+        dayOfYear += 1; //Lägger på en dag om det inte är skottår...
 }
-console.log('Day of year: ' + dayOfYear + ', Year:' + year + ', LeapYear: ' + leapYear);
+console.log('Day of year: ' + dayOfYear + ', Year: ' + year + ', LeapYear: ' + leapYear);
 //Koden för att ta fram dagen slutar här. 
 
 var datumet = "har det blivit något fel eller så har";
@@ -67,7 +65,7 @@ switch (dayOfYear) {
     case 42: datumet ='11 februari har'; namnen='Yngve och Inge'; break;
     case 43: datumet ='12 februari har'; namnen='Evelina och Evy'; break;
     case 44: datumet ='13 februari har'; namnen='Agne och Ove'; break;
-    case 45: datumet ='14 februari är Alla hjärtans dag, och då har'; namnen='Valentin'; break;
+    case 45: datumet ='14 februari är Alla hjärtans dag 💞, och då har'; namnen='Valentin'; break;
     case 46: datumet ='15 februari har'; namnen='Sigfrid'; break;
     case 47: datumet ='16 februari har'; namnen='Julia och Julius'; break;
     case 48: datumet ='17 februari har'; namnen='Alexandra och Sandra'; break;
@@ -143,7 +141,7 @@ switch (dayOfYear) {
     case 118: datumet ='27 april har'; namnen='Engelbrekt'; break;
     case 119: datumet ='28 april har'; namnen='Ture och Tyra'; break;
     case 120: datumet ='29 april har'; namnen='Tyko'; break;
-    case 121: datumet ='30 april är Valborgsmässoafton, och då har'; namnen='Mariana'; break;
+    case 121: datumet ='30 april är Valborgsmässoafton 🔥, och då har'; namnen='Mariana'; break;
     case 122: datumet ='1 maj har'; namnen='Valborg'; break;
     case 123: datumet ='2 maj har'; namnen='Filip och Filippa'; break;
     case 124: datumet ='3 maj har'; namnen='John och Jane'; break;
@@ -180,7 +178,7 @@ switch (dayOfYear) {
     case 155: datumet ='3 juni har'; namnen='Ingemar och Gudmar'; break;
     case 156: datumet ='4 juni har'; namnen='Solbritt och Solveig'; break;
     case 157: datumet ='5 juni har'; namnen='Bo'; break;
-    case 158: datumet ='6 juni har'; namnen='Gustav och Gösta'; break;
+    case 158: datumet ='6 juni är Nationaldagen 🇸🇪, då har'; namnen='Gustav och Gösta'; break;
     case 159: datumet ='7 juni har'; namnen='Robert och Robin'; break;
     case 160: datumet ='8 juni har'; namnen='Eivor och Majvor'; break;
     case 161: datumet ='9 juni har'; namnen='Börje och Birger'; break;
@@ -328,7 +326,7 @@ switch (dayOfYear) {
     case 303: datumet ='29 oktober har'; namnen='Viola'; break;
     case 304: datumet ='30 oktober har'; namnen='Elsa och Isabella'; break;
     case 305: datumet ='31 oktober har'; namnen='Edit och Edgar'; break;
-    case 306: datumet ='1 november är Allhelgonadagen,'; namnen='ingen'; break;
+    case 306: datumet ='1 november är Allhelgonadagen 💀,'; namnen='ingen'; break;
     case 307: datumet ='2 november har'; namnen='Tobias'; break;
     case 308: datumet ='3 november har'; namnen='Hubert och Hugo'; break;
     case 309: datumet ='4 november har'; namnen='Sverker'; break;
@@ -382,7 +380,7 @@ switch (dayOfYear) {
     case 357: datumet ='22 december har'; namnen='Natanael och Jonatan'; break;
     case 358: datumet ='23 december har'; namnen='Adam'; break;
     case 359: datumet ='24 december är Julafton 🎅, och då har'; namnen='Eva'; break;
-    case 360: datumet ='25 december är Juldagen,'; namnen='ingen'; break;
+    case 360: datumet ='25 december är Juldagen 🤶,'; namnen='ingen'; break;
     case 361: datumet ='26 december är Annandag jul, och då har'; namnen='Stefan och Staffan'; break;
     case 362: datumet ='27 december har'; namnen='Johannes och Johan'; break;
     case 363: datumet ='28 december har'; namnen='Benjamin'; break;
@@ -395,7 +393,7 @@ switch (dayOfYear) {
 
 // Skriver ut det case som blev ovan som dagens namnsdag i index-filens DOM. 
 document.getElementById("dagensDatum").innerHTML = datumet;
-document.getElementById("dagensNamnsdagar").innerHTML = namnen + ' LeapYear: ' + leapYear + ' not: ' + notLeapYear;
+document.getElementById("dagensNamnsdagar").innerHTML = namnen;
 
 //Kollar om elementet med ID "dagPåÅret finns, skriver annars ut i konsollen att det inte finns. "
 try{
