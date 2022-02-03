@@ -394,6 +394,9 @@ switch (dayOfYear) {
 // Skriver ut det case som blev ovan som dagens namnsdag i index-filens DOM. 
 document.getElementById("dagensDatum").innerHTML = datumet;
 document.getElementById("dagensNamnsdagar").innerHTML = namnen;
+document.getElementById("dagensYear").innerHTML = year;
+document.getElementById("dagensLeapYear").innerHTML = leapYear ? "är skottår" : "inte är skottår";
+
 
 //Kollar om elementet med ID "dagPåÅret finns, skriver annars ut i konsollen att det inte finns. "
 try{
