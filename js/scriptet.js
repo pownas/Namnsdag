@@ -9,7 +9,8 @@ var dayOfYear = Math.floor(diff / oneDay);
 
 //Kod för att visa skottår: https://stackoverflow.com/a/16353241
 //om det är == 0, borde det bli false, är det > 0, så blir det true. 
-bool notLeapYear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+var leapYear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+var notLeapYear = Boolean(leapYear);
 
 if (dayOfYear >= 60)
 {
@@ -394,7 +395,7 @@ switch (dayOfYear) {
 
 // Skriver ut det case som blev ovan som dagens namnsdag i index-filens DOM. 
 document.getElementById("dagensDatum").innerHTML = datumet;
-document.getElementById("dagensNamnsdagar").innerHTML = namnen + ' LeapYear: ' + leapYear;
+document.getElementById("dagensNamnsdagar").innerHTML = namnen + ' LeapYear: ' + leapYear + ' not: ' + notLeapYear;
 
 //Kollar om elementet med ID "dagPåÅret finns, skriver annars ut i konsollen att det inte finns. "
 try{
