@@ -4,18 +4,19 @@ var now = new Date();
 var start = new Date(now.getFullYear(), 0, 0);
 var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
 var oneDay = 1000 * 60 * 60 * 24;
+var year = now.getFullYear();
 var dayOfYear = Math.floor(diff / oneDay);
+
+//Kod för att visa skottår: https://stackoverflow.com/a/16353241
+//om det är == 0, borde det bli false, är det > 0, så blir det true. 
+bool notLeapYear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+
 if (dayOfYear >= 60)
 {
-    //Kod för att visa skottår: https://stackoverflow.com/a/16353241
-    function leapYear(year)
-    {
-        return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
-    }
-
-    dayOfYear += 1; // löser alla år utom skottår
+    if (notLeapYear) //om leapYear == 0, så är det skottår. 
+        dayOfYear += 1; // löser alla år utom skottår
 }
-console.log('Day of year: ' + dayOfYear);
+console.log('Day of year: ' + dayOfYear + ', Year:' + year + ', LeapYear: ' + leapYear);
 //Koden för att ta fram dagen slutar här. 
 
 var datumet = "har det blivit något fel eller så har";
@@ -393,7 +394,7 @@ switch (dayOfYear) {
 
 // Skriver ut det case som blev ovan som dagens namnsdag i index-filens DOM. 
 document.getElementById("dagensDatum").innerHTML = datumet;
-document.getElementById("dagensNamnsdagar").innerHTML = namnen;
+document.getElementById("dagensNamnsdagar").innerHTML = namnen + ' LeapYear: ' + leapYear;
 
 //Kollar om elementet med ID "dagPåÅret finns, skriver annars ut i konsollen att det inte finns. "
 try{
